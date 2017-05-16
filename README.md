@@ -4,6 +4,7 @@ Simple DNS server that handle zone and logs all queries to redis database. Based
 # Configuration
 open index.js and configure `const config`:
 
+```
  const config = {
     dns: {
         interface: "0.0.0.0",		// or your server IP address to bind to
@@ -24,7 +25,10 @@ open index.js and configure `const config`:
         "port": 6379,
     }
  };
-
+```
 
 # Usage
+start your redis server, then start this node
+```
  nodejs ./index.js
+```
