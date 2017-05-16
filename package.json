@@ -1,0 +1,34 @@
+{
+    "name": "dnsd2redis",
+    "private": false,
+    "version": "0.0.1",
+    "author": "Denys <denisix@gmail.com>",
+    "description": "Simple DNS server that handle zone and logs all queries to redis database. Based on https://github.com/colmsjo/redis-dns.git",
+    "homepage": "https://github.com/",
+    "license": "WTFPL",
+    "preferGlobal": false,
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/denisix/dnsd2redis"
+    },
+    "bugs": {
+        "url": "https://github.com/denisix/redis-dns/issues"
+    },
+    "main": "index.js",
+    "bin": "./index.js",
+    "scripts": {
+        "dev": "export NODE_ENV='dev' && clear && node index.js",
+        "start": "node index.js"
+    },
+    "dependencies": {
+        "dnsd": "0.9.0",
+        "redis": "0.8.4"
+    },
+    "keywords": [
+        "DNS",
+        "bind",
+        "dnsd",
+        "redis",
+		"log"
+    ]
+}
