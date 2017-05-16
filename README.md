@@ -1,7 +1,10 @@
 # dnsd2redis
 Simple DNS server that handle zone and logs all queries to redis database. Based on https://github.com/colmsjo/redis-dns.git
 
-# Configuration
+## About
+this simple DNS server will allow you to gather client's DNS ip addresses (i.e. DNS leak)
+
+## Configuration
 open index.js and configure `const config`:
 
 ```
@@ -27,8 +30,33 @@ open index.js and configure `const config`:
  };
 ```
 
-# Usage
-start your redis server, then start this node
+## Usage
+start your redis server, then start this node:
 ```
- nodejs ./index.js
+nodejs ./index.js
+```
+
+## Make some queries then..
+for example using dig:
+
+- check NS zone
+```
+dig @YOUR_SERVER_IP -t ns zone.my-domain.com
+```
+
+- check your static A-records:
+```
+dig @YOUR_SERVER_IP a.zone.my-domain.com
+dig @YOUR_SERVER_IP b.zone.my-domain.com
+```
+
+- check other (unexisting) A-records:
+```
+dig @YOUR_SERVER_IP example.zone.my-domain.com
+```
+
+## Now you can query your redis, using redis-cli for example:
+```
+redis-cli 
+127.0.0.1:6379> smembers q:example.zone.my-domain.com
 ```
